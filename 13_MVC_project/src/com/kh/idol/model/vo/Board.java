@@ -6,19 +6,19 @@ public class Board {
 	private String boardTitle;
 	private String boardContent;
 	private String userId;
-	private String creatDate;
+	private String createDate;
 	
 	public Board() {
 		super();
 	}
 
-	public Board(int boardNo, String boardTitle, String boardContent, String userId, String creatDate) {
+	public Board(int boardNo, String boardTitle, String boardContent, String userId, String createDate) {
 		super();
 		this.boardNo = boardNo;
 		this.boardTitle = boardTitle;
 		this.boardContent = boardContent;
 		this.userId = userId;
-		this.creatDate = creatDate;
+		this.createDate = createDate;
 	}
 
 	public int getBoardNo() {
@@ -53,20 +53,20 @@ public class Board {
 		this.userId = userId;
 	}
 
-	public String getCreatDate() {
-		return creatDate;
+	public String getCreateDate() {
+		return createDate;
 	}
 
-	public void setCreatDate(String creatDate) {
-		this.creatDate = creatDate;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
-				+ ", userId=" + userId + ", creatDate=" + creatDate + "]";
+				+ ", userId=" + userId + ", creatDate=" + createDate + "]";
 	}
-	
+
 	
 	
 	

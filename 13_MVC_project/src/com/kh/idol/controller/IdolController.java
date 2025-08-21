@@ -1,6 +1,8 @@
 package com.kh.idol.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.kh.idol.model.vo.Board;
@@ -12,6 +14,7 @@ public class IdolController {
 	private List<Fan> fans = new ArrayList(); 
 	private List<Board> boards = new ArrayList();
 	private List<Idol> aespa = new ArrayList();
+	private int boardNo;
 	
 	{
 		aespa.add(new Idol("카리나", "리더", "Rocket Puncher"));
@@ -265,7 +268,42 @@ public class IdolController {
 		
 	}
 	
+	public void boardMenu(int menuNo) {
+		
+	}
 	
+	// 로그인에 성공한 사용자가 게시글 작성 요청을 할 때마다 호출이 되는 메소드
+	public void post(String boardTitle, String boardContent, String userId) {
+		
+		// 기존 boardNo 보다 1증가 시킨 값과
+		// 사용자가 입력한 게시글 제목, 내용 값과
+		// 현재 로그인된 사용자의 아이디 값과
+		// 현재 게시글 작성 요청이 들어온 시간 값을 가지고
+		// Board 객체를 만들어서 Board 타입들이 들어가는 List의 요소로 추가를 해줄 겁니다.
 	
+		// 1. 데이터 가공
+		Board board = new Board();
+		board.setBoardTitle(boardTitle);
+		board.setBoardContent(boardContent);
+		board.setUserId(userId);
+		board.setBoardNo(++boardNo);
+		String createDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
+		board.setCreateDate(createDate);
+		
+		// 2. 요 청 처 리
+		boards.add(board);
+
+	}
+	
+	public List<Board> selectBoardList() {
+		
+		// View의 요청에 의해 호출되며,
+		// 게시글 목록이 담겨있는 것을 되돌려주어야함.
+		return boards;
+		
+	}
+	
+
 	
 }
+
