@@ -1,6 +1,7 @@
 package com.kh.network.run;
 
 public class TestClass {
+
 	
 	// 이번엔 진짜 확정 지을 거임
 	// Home Sweet Home ~~~
@@ -10,4 +11,11 @@ public class TestClass {
 	public void hi() {
 		
 	}
+
+
+	// 이번엔 진짜로 확정지어 볼 거임
+	// 아오늘도 열심히 공부했다 아 힘들도 고생했다
+	// 이것저것 열심히 만ㄷ르었다 아~~~~~
+	// 마지막으로 집에서 만든거 백업해서 학원에서 열어보자
+	// 이번에 안되면 짐싸~~~~~~~~~~~
 }
