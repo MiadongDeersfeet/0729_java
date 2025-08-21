@@ -241,7 +241,7 @@ public class IdolController {
 		
 	}
 	
-	public List<Fan> login(String userId, String userPwd) {
+	public Fan login(String userId, String userPwd) {
 		
 		// 컨트롤러가 가지고 있는
 		// Fan의 정보를 필드에 저장하는 Fan 객체들의 주소를 가지고 있는

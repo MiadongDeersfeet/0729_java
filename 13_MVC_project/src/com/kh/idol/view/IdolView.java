@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.kh.idol.controller.IdolController;
+import com.kh.idol.model.vo.Fan;
 import com.kh.idol.model.vo.Idol;
 
 public class IdolView {
 	// 필드부
 	private Scanner sc = new Scanner(System.in);
 	private IdolController ic = new IdolController();
+	// 로그인에 성공한 회원의 정보를 담아줄 필드
+	private Fan loginFan;
 	
 	// 생성자
 	
@@ -27,7 +30,7 @@ public class IdolView {
 			System.out.println("3. 로그인");
 			System.out.println("4. 게시판 서비스");
 			System.out.println("5. 프로그램 종료");
-			System.out.println("메뉴 번호 입력 > ");
+			System.out.print("메뉴 번호 입력 > ");
 			int menuNo = sc.nextInt();
 			sc.nextLine();
 			
@@ -56,7 +59,7 @@ public class IdolView {
 		System.out.println("4. 닝닝의 정보보기");
 		System.out.println("5. 모든 멤버 정보보기");
 		System.out.println("6. 메인메뉴로 돌아가기");
-		System.out.println("이용하실 메뉴를 입력해주세요 > ");
+		System.out.print("이용하실 메뉴를 입력해주세요 > ");
 		int menuNo = sc.nextInt();
 		sc.nextLine();
 		
@@ -119,7 +122,7 @@ public class IdolView {
 		
 		String userId;
 		while(true) {
-		System.out.println("가입하실 아이디를 입력해주세요.");
+		System.out.print("가입하실 아이디를 입력해주세요.");
 		userId = sc.nextLine();
 		
 		// 하나의 메소드는 하나의 기능만을 수행해야한다.
@@ -133,7 +136,7 @@ public class IdolView {
 		
 		// 1. 아이디는 4글자에서 10글자 사이만 가능하다.
 		if(!(3 < userId.length() && userId.length() < 11)) { 
-			System.out.println("아이디는 4자에서 10자 사이만 사용 가능합니다.");
+			System.out.print("아이디는 4자에서 10자 사이만 사용 가능합니다.");
 			continue;
 		}
 			
@@ -150,10 +153,10 @@ public class IdolView {
 		
 	 }
 		
-		System.out.println("사용하실 비밀번호를 입력해주세요.");
+		System.out.print("사용하실 비밀번호를 입력해주세요.");
 		String userPwd = sc.nextLine();
 		
-		System.out.println("사용하실 닉네임을 입력해주세요.");
+		System.out.print("사용하실 닉네임을 입력해주세요.");
 		String nickName = sc.nextLine();
 		
 		// 뷰는 일단 자신의 할 일을 1절까지 마무리 했다.
@@ -181,7 +184,15 @@ public class IdolView {
 		System.out.print("비밀번호를 입력하세요 > ");
 		String userPwd = sc.nextLine();
 		
-		ic.login(userId, userPwd); //인자값을 줄테니 컨트롤러야~~필드값에 가서 둘다 똑같은게 있는지 찾아봐줘.
+		Fan fan = ic.login(userId, userPwd); //인자값을 줄테니 컨트롤러야~~필드값에 가서 둘다 똑같은게 있는지 찾아봐줘.
+		
+		if(fan != null) {
+			System.out.println(fan.getNickName() + "님 환영합니다~!");
+			loginFan = fan;
+		} else {
+			System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
+			
+		}
 		
 		
 		
