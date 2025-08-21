@@ -34,7 +34,7 @@ public class IdolView {
 			switch(menuNo) {
 			case 1 : infoMenu(); break;
 			case 2 : signUp(); break;
-			case 3 : break;
+			case 3 : login(); break;
 			case 4 : break;
 			case 5 : break;
 			default : System.out.println("잘못된 메뉴를 선택하셨습니다.");
@@ -170,6 +170,25 @@ public class IdolView {
 		
 		
   }		
+	
+	private void login() {
+		
+		System.out.println("\n로그인 서비스 입니다.");
+		
+		System.out.print("아이디를 입력하세요 > ");
+		String userId = sc.nextLine();
+		
+		System.out.print("비밀번호를 입력하세요 > ");
+		String userPwd = sc.nextLine();
+		
+		ic.login(userId, userPwd); //인자값을 줄테니 컨트롤러야~~필드값에 가서 둘다 똑같은게 있는지 찾아봐줘.
+		
+		
+		
+		
+		
+		
+	}
 	
 
 	

@@ -241,6 +241,30 @@ public class IdolController {
 		
 	}
 	
+	public List<Fan> login(String userId, String userPwd) {
+		
+		// 컨트롤러가 가지고 있는
+		// Fan의 정보를 필드에 저장하는 Fan 객체들의 주소를 가지고 있는
+		// fans 라는 리스트의 요소에 하나하나 접근해서
+		// Fan 객체의 userId 필드 및 userPwd 필드를
+		// 사용자가 입력한 userId, userPwd와 각각 비교하여
+		// 둘 다 일치하는 Fan 객체가 존재한다면 사용자의 정보가 담겨있는 Fan을 반환
+		
+		for(int i = 0; i < fans.size(); i++) {
+			// 반복하면서 순차적으로 접근할 요소 객체를 변수로 선언
+			Fan fan = fans.get(i);
+			
+			if(userId.equals(fan.getUserId()) && userPwd.equals(fan.getUserPwd())) {
+				// 사용자가 입력한 아이디 & 비밀번호가 일치하는 Fan 객체가 존재한다는 의미
+				return fan;
+			}
+			
+		}
+		
+		return null; //for 를 돌았는데 똑같은 게 없었을 경우 null 값을 (호출한 쪽에) 반환하자
+		
+	}
+	
 	
 	
 	
