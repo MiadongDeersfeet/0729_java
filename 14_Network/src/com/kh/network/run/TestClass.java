@@ -9,7 +9,7 @@ public class TestClass {
 	// 나는 왜 안올라가지? 무ㅡㅓ지 ?? 왜이러지?????
 	
 	public void hi() {
-		
+		System.out.println("집에서 작업을 열심히 하고 올려볼게요. 여기선 주의사항!!!!!전달드립니다.");
 	}
 
 
@@ -18,4 +18,13 @@ public class TestClass {
 	// 이것저것 열심히 만ㄷ르었다 아~~~~~
 	// 마지막으로 집에서 만든거 백업해서 학원에서 열어보자
 	// 이번에 안되면 짐싸~~~~~~~~~~~
+	
+	public void bye() {
+		System.out.println("호다닥 급하다 급해");
+		
+	}
+	
+	public void gogogo() {
+		System.out.println("아 한시간 늦어버렸다 늦었어 빨리쳐야돼");
+	}
 }
