@@ -21,6 +21,7 @@ public class BookMenu {
 		
 		while(true) {
 		try {	
+		
 		System.out.println("******** 메인 메뉴 ********");
 		System.out.println("1. 새 도서 추가");
 		System.out.println("2. 도서 전체 조회");
@@ -184,12 +185,12 @@ public class BookMenu {
 	public void ascBook() {
 		// 책 명 오름차순 정렬 성공을 알리는 메소드
 		List<Book> ascBook = bc.ascBook();
-		if(ascBook != null) {
+		if(!ascBook.isEmpty()) {
 			for(Book book : ascBook) {
 		System.out.println(book); // List의 ascBook을 넣으니 자동개행이 안됐고 값을 대입한 변수 book을 넣으니 자동개행이 됐다.
 			}
 		} else {
-			System.out.println("정렬할 도서가 없습니다.");
+			System.out.println("정렬할 도서가 없습니다."); // 이거 출력이 안되는 이유는? 컨트롤러에서 List 로 받아놓은 객체 생성은 절대 null 일 수 없다. 비어있을지라도. 그래서 isEmpty를 해줘야함.
 		}
 	}
 }
