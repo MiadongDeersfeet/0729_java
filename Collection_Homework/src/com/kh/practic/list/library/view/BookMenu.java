@@ -184,6 +184,12 @@ public class BookMenu {
 	public void ascBook() {
 		// 책 명 오름차순 정렬 성공을 알리는 메소드
 		List<Book> ascBook = bc.ascBook();
-		System.out.println(ascBook);
+		if(ascBook != null) {
+			for(Book book : ascBook) {
+		System.out.println(book); // List의 ascBook을 넣으니 자동개행이 안됐고 값을 대입한 변수 book을 넣으니 자동개행이 됐다.
+			}
+		} else {
+			System.out.println("정렬할 도서가 없습니다.");
+		}
 	}
 }

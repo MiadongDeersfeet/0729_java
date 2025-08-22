@@ -39,11 +39,7 @@ public class BookController {
 		// 모든 리스트를 출력하는 메소드
 		// BookMenu에서 나를 호출했네?
 		return list;
-		
-		
-		
-		
-		
+
 	}
 	
 	public Book deleteBook(String removeTitle, String removeAuthor) {
@@ -66,6 +62,7 @@ public class BookController {
 	public List<Book> ascBook() {
 	// 책 명 오름차순 정렬하는 메소드
 		list.sort(Comparator.comparing(Book::getAuthor));
+	//	list.sort(Comparator.comparing(Book::getPrice));
 	 return list;
 	}
 	
