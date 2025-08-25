@@ -120,12 +120,67 @@ public class Run {
 		}
 		System.out.println(longNameCoffee);
 		//-------------------------------------------------------------------------------------
-		
+		// 새로운 방법을 배워봅시다^~^
 		List<String> coffeeList = coffee.stream()
 									.filter(c -> c.length() == 5)
 									.collect(Collectors.toList());
 		System.out.println(coffeeList);
 		
+		// map -> 스트림을 이용해서 데이터 변환하는 용도
+		List<Integer> nameLength = new ArrayList();
+		for(String name : coffee) {
+			nameLength.add(name.length());
+		}
+		System.out.println(nameLength);
+		
+//----------------------------------------------------------------------------------------------		
+		/*
+		List<Integer> lengths = coffee.stream()
+									  .map(c -> c.length())
+									  .collect(Collectors.toList());
+		System.out.println(lengths);
+		coffee.stream().map(c -> c + "의 길이 : " + c.length())
+					   .forEach(l -> System.out.println(l));
+						 */
+//----------------------------------------------------------------------------------------------
+		// 위의 방법에서 더 줄여보자~!
+		List<Integer> lengths = coffee.stream()
+								      .map(String::length)
+								      .collect(Collectors.toList());
+		System.out.println(lengths);
+		coffee.stream().map(c -> c + "의 길이 : " + c.length())
+					   .forEach(System.out::println); 
+		
+		System.out.println("==================================================");
+		
+		List<Person> people = Arrays.asList(
+											new Person("홍길동", "한양", 15),
+											new Person("고길동", "서울", 40),
+											new Person("춘향이", "남원", 20),
+											new Person("콩쥐", "서울", 23)
+											);
+		System.out.println("서울 사람만 출력하기");
+		System.out.println("원래 우리의 방식");
+		for(Person person : people) {
+			if("서울".equals(person.getAddress())) {
+				System.out.println(person);
+			}
+		}
+		
+		System.out.println("스트림 방식");
+		people.stream().filter(person -> "서울".equals(person.getAddress()))
+					   .forEach(System.out::println);
+		
+		// 이름과 주소 출력하기
+		System.out.println("전통적인 방식");
+		for(Person person : people) {
+			System.out.println(person.getName() + "님은 " + person.getAddress() + "에 삽니다.");		
+			
+		}
+		
+		System.out.println("스트림 방식");
+		people.stream().map(person -> person.getName() + "님은 " + person.getAddress() + "에 삽니다.")
+					   .forEach(System.out::println);
 		
 	}
 	
